@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <GlobalStyle />
     <SearchProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/github_search">
         <Routes>
           <Route path="/" element={<App />}></Route>
           <Route path="/:id" element={<SingleUser/>}></Route>
