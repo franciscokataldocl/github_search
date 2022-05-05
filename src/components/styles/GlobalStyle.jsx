@@ -95,5 +95,60 @@ border-radius: 50px;
 background:var(--black);
 color:var(--white);
   }
+  .PaginationList{
+    border:red solid 1px;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .PaginationList .previous, .PaginationList .next{
+    background:white;
+    padding: 0%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    text-align: center;
+  }
+  .PaginationList .previous a, .PaginationList .next a{
+    color:var(--black);
+    padding: 0%;
+    height: 40px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+  }
+  .PaginationList li{
+    background:var(--blue);
+    height: 40px;
+    width:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .PaginationList li a{
+    color:white;
+    height: 40px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .PaginationList li:hover {
+    cursor:pointer;
+    opacity: .5;
+  }
+  .PaginationList .previous:hover, .PaginationList .next:hover{
+    cursor:pointer;
+    opacity: .5;
+  }
+  .PaginationList li a{
+
+  }
 `;
 export default GlobalStyle;

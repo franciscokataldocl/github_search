@@ -2,7 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useSearch } from "../context/searchContext";
 import Card from './Card';
 import styled  from 'styled-components';
-import Pagination from '../Pagination';
+// import Pagination from '../bak_Pagination';
+import TotalAccount from './TotalAccount';
+import Loading from '../loading/Loading';
+// import ReactPaginate from 'react-paginate';
+import Pagination from '../Pagination'
+
+
+
+
+
 
 
 
@@ -11,7 +20,10 @@ const List = () => {
   const [loading, setLoading] = useState(false);
     const [profiles, setProfiles] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [profilesPerpage, setProfilesPerPage] = useState(5)
+    const [profilesPerpage, setProfilesPerPage] = useState(5);
+ 
+
+    //console.log(profiles.length)
 
   const url = "https://api.github.com/search/users?q=";
 
@@ -39,9 +51,9 @@ const List = () => {
   }, [search]);
 
     //get current profiles
-    const indexOfLastProfile = currentPage * profilesPerpage;
-    const indexOfFirstProfile = indexOfLastProfile - profilesPerpage;
-    const currentProfiles = profiles.slice(indexOfFirstProfile, indexOfLastProfile);
+    const indexOfLastProfile = currentPage * profilesPerpage; //15
+    const indexOfFirstProfile = indexOfLastProfile - profilesPerpage; //0
+    const currentProfiles = profiles.slice(indexOfFirstProfile, indexOfLastProfile); //0-15
 
     //cambiar de pagina
     const paginate = (pageNumber) => {
@@ -50,13 +62,20 @@ const List = () => {
 
     return (
       <>
-        <Container>
-          {currentProfiles &&
-            currentProfiles.map((user) => (
-              <Card key={user.login} user={user} />
-            ))}
-        </Container>
-            <Pagination profilesPerpage={profilesPerpage} totalProfiles={profiles.length} paginate={paginate} />
+      {loading ? <Loading/> :
+      <>
+      {profiles.length === 0 ? '' : <TotalAccount totalAccount={profiles.length}/>}
+      
+      <Container>
+        {currentProfiles &&
+          currentProfiles.map((user) => (
+            <Card key={user.login} user={user} />
+          ))}
+      </Container>
+          {/* <Pagination profilesPerpage={profilesPerpage} totalProfiles={profiles.length} paginate={paginate} /> */}
+ <Pagination profilesPerpage={profilesPerpage}  totalProfiles={profiles.length} paginate={paginate}/>
+      
+      </>}
       </>
     );
 };

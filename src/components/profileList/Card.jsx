@@ -72,26 +72,36 @@ const Card = ({ user }) => {
           <ExtraTitle>Score</ExtraTitle>
           <ExtraNumber>{user.score}</ExtraNumber>
         </Extra>
-        <Extra>
-          <ExtraTitle>Repos</ExtraTitle>
-          <ExtraNumber>
-            {extras && extras.repos < 100 ? (
+        {extras && extras.repo< 100 &&(
+ <Extra>
+ <ExtraTitle>Repos</ExtraTitle>
+
+
+ <ExtraNumber>
+            {extras.repos < 100 ? (
               <p>{extras.repos}</p>
             ) : (
               <p>{extras.repos} +</p>
             )}
           </ExtraNumber>
-        </Extra>
+
+ </Extra>
+        ) }
+       
+       {extras && extras.followers < 100 && (
         <Extra>
           <ExtraTitle>Followers</ExtraTitle>
           <ExtraNumber>
-            {extras && extras.followers < 100 ? (
+            {extras.followers < 100 ? (
               <p>{extras.followers}</p>
             ) : (
               <p>{extras.followers} +</p>
             )}
           </ExtraNumber>
         </Extra>
+       )}
+        
+        
       </Extras>
       <ButtonContainer>
         <Link to={`/${user.login}`} className="btn btn-white">
@@ -147,10 +157,11 @@ text-align:center;
 const Extras = styled.div`
   width: 90%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin:0 auto;
   margin-top:10%;
+
 `;
 const Extra = styled.div`
   display: flex;

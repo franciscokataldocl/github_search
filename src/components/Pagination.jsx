@@ -1,31 +1,41 @@
 import React from 'react';
+import ReactPaginate from 'react-paginate';
 import styled  from 'styled-components';
 
 
-const Pagination = ({ profilesPerpage, totalProfiles, paginate }) => {
 
-    const pageNumbers = [];
-    for (let i = 1; i < Math.ceil(totalProfiles / profilesPerpage); i++) {
-        pageNumbers.push(i)
-    }
+const Pagination = ({ totalProfiles, profilesPerpage, paginate }) => {
 
+    const PageCount = Math.ceil(totalProfiles / profilesPerpage);
+    console.log(totalProfiles)
+    console.log(totalProfiles)
 
-
-
+    const ChangePage = ({ selected }) => {
+        paginate(selected +1)
+      };
+ 
   return (
     <Container>
-      <PaginationList>
-        {pageNumbers.map((number) => (
-          <li key={number} onClick={() => paginate(number)}>
-            {number}
-          </li>
-        ))}
-      </PaginationList>
+
+<ReactPaginate
+    previousLabel={"Anterior"}
+    nextLabel={"Siguiente"}
+    pageCount={PageCount}
+    onPageChange={ChangePage}
+    containerClassName={"PaginationList"}
+    activeClassName={"paginationActive"}
+ 
+  ></ReactPaginate>
+
     </Container>
-  );
+   
+   
+  )
 }
 
 export default Pagination;
+
+
 
 const Container = styled.div`
 width:100%;
@@ -36,28 +46,6 @@ justify-content: center;
 align-items: center;
 `
 const PaginationList = styled.div`
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & li {
-    background: var(--blue);
-    color:var(--white);
-    font-weight: 400;
-    font-size:1.1rem;
-    padding: 15px;
-    width:20px;
-    height:20px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    margin: 3px;
-    &:hover {
-      cursor: pointer;
-      opacity: 0.5;
-    }
-
-
-  }
-`;
+border:red solid 1px!important;
+`
+  
