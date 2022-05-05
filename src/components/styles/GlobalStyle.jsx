@@ -96,7 +96,7 @@ background:var(--black);
 color:var(--white);
   }
   .PaginationList{
-    border:red solid 1px;
+   
     width:100%;
     display:flex;
     justify-content: center;
