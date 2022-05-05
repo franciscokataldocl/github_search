@@ -8,14 +8,15 @@ const Pagination = ({ totalProfiles, profilesPerpage, paginate }) => {
 
     const PageCount = Math.ceil(totalProfiles / profilesPerpage);
     console.log(totalProfiles)
-    console.log(totalProfiles)
+ 
 
     const ChangePage = ({ selected }) => {
         paginate(selected +1)
       };
  
   return (
-    <Container>
+   <>
+   {totalProfiles > 0 &&  <Container>
 
 <ReactPaginate
     previousLabel={"Anterior"}
@@ -27,7 +28,7 @@ const Pagination = ({ totalProfiles, profilesPerpage, paginate }) => {
  
   ></ReactPaginate>
 
-    </Container>
+    </Container>}</>
    
    
   )

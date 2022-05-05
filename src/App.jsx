@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1>bienvenido</h1>
+    
       <Header />
       <List />
 
