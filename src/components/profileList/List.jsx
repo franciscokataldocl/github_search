@@ -86,5 +86,7 @@ display:flex;
 justify-content: center;
 align-items:center;
 flex-wrap: wrap;
-
+@media (max-width: 768px) {
+    flex-direction:column;
+  }
 `

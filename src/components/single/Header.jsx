@@ -26,6 +26,9 @@ const HeaderBox = styled.div`
   width: 100%;
   position: relative;
   height: 330px;
+  @media (max-width: 768px) {
+    height:280px;
+  }
 `;
 
 const ImageBox = styled.div`
@@ -45,6 +48,11 @@ const ImageBox = styled.div`
     width: 250px;
     height: 250px;
   }
+  @media (max-width: 768px) {
+    width: 150px;
+  height: 150px;
+  transform: translate(-50%, 50%);
+  }
 `;
 
 const Title = styled.h1`
@@ -56,4 +64,8 @@ const Title = styled.h1`
   left: 50%;
   transform: translate(-50%, 70%);
   z-index: -1;
+  @media (max-width: 768px) {
+    font-size:2rem;
+    transform: translate(-50%, 230px);
+  }
 `;

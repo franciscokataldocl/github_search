@@ -53,4 +53,7 @@ const Input = styled.input`
   font-size:1.3rem;
   font-weight:200!important;
   color:var(--black);
+  @media (max-width: 768px) {
+    min-width: 250px;
+  }
 `;

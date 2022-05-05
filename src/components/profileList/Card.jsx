@@ -121,6 +121,10 @@ width:30%;
 max-width:250px;
 height:200px;
 margin:3%;
+@media (max-width: 768px) {
+   width:90%;
+   margin-bottom:20%;
+  }
 `
 
 const ImageCircle = styled.div`
@@ -137,6 +141,15 @@ const ImageCircle = styled.div`
     width: 60px;
     height: 60px;
   }
+  @media (max-width: 768px) {
+    width: 80px;
+  height: 80px;
+  & img {
+    width: 80px;
+  height: 80px;
+  }
+  }
+  
 `;
 
 const ImageContainer = styled.div`
@@ -157,15 +170,14 @@ text-align:center;
 const Extras = styled.div`
   width: 90%;
   display: flex;
-  justify-content: center;
   align-items: center;
   margin:0 auto;
   margin-top:10%;
+  justify-content: space-evenly;
 
 `;
 const Extra = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
 `;
@@ -188,4 +200,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top:45px;
+  @media (max-width: 768px) {
+    margin-top:20px;
+  }
 `;

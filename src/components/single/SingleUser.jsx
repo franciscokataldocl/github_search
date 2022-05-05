@@ -118,6 +118,9 @@ const BackButton = styled.button`
     &:hover{
     cursor:pointer;
     }
+    @media (max-width: 768px) {
+    z-index:2;
+  }
 `
 
 const ProfileCard = styled.div`
@@ -130,6 +133,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+
 `
 
 const TitleBox = styled.div`
@@ -159,6 +163,9 @@ const List = styled.li`
   align-items: center;
   list-style: none;
   padding: 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   & li {
     background: var(--black);
     border-radius: 3px;
